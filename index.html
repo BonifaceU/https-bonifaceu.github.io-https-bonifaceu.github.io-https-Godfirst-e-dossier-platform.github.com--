@@ -1,0 +1,3360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>God First Comprehensive College, Gungul | E-Dossier</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+:root{
+    --primary:#126b3a;
+    --secondary:#0b4f2a;
+    --accent:#f1c40f;
+    --light:#f4f8f5;
+    --white:#fff;
+    --dark:#1d2939;
+    --danger:#c0392b;
+    --border:#d0d5dd;
+}
+
+body{
+    background:#eef2f0;
+    color:var(--dark);
+}
+
+/* TOP MARQUEE */
+
+.marquee{
+    background:#0b4f2a;
+    color:white;
+    padding:7px;
+    font-size:13px;
+}
+
+/* HEADER */
+
+.header{
+    background:linear-gradient(135deg,var(--secondary),var(--primary));
+    color:white;
+    padding:20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.school-title h1{
+    font-size:25px;
+}
+
+.school-title p{
+    margin-top:5px;
+    color:#e8f5e9;
+}
+
+.logo{
+    width:75px;
+    height:75px;
+    border-radius:50%;
+    background:white;
+    color:var(--primary);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:12px;
+    font-weight:bold;
+    text-align:center;
+}
+
+/* LAYOUT */
+
+.container{
+    display:flex;
+    min-height:calc(100vh - 160px);
+}
+
+.sidebar{
+    width:230px;
+    background:#103b25;
+    color:white;
+    padding:15px 10px;
+}
+
+.sidebar button{
+    width:100%;
+    border:0;
+    background:transparent;
+    color:white;
+    text-align:left;
+    padding:13px;
+    margin-bottom:5px;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:15px;
+}
+
+.sidebar button:hover,
+.sidebar button.active{
+    background:var(--primary);
+}
+
+.main{
+    flex:1;
+    padding:25px;
+    overflow:auto;
+}
+
+/* SECTIONS */
+
+.section{
+    display:none;
+}
+
+.section.active{
+    display:block;
+}
+
+.page-title{
+    margin-bottom:20px;
+}
+
+.page-title h2{
+    color:var(--secondary);
+}
+
+.page-title p{
+    color:#667085;
+    margin-top:5px;
+}
+
+/* CARDS */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+    margin-bottom:25px;
+}
+
+.card{
+    background:white;
+    border-radius:10px;
+    padding:22px;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+    border-left:5px solid var(--primary);
+}
+
+.card h3{
+    color:#667085;
+    font-size:14px;
+}
+
+.card strong{
+    display:block;
+    font-size:30px;
+    color:var(--primary);
+    margin-top:10px;
+}
+
+/* FORMS */
+
+.form-card,
+.table-card{
+    background:white;
+    padding:22px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,.07);
+    margin-bottom:20px;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+}
+
+.form-group.full{
+    grid-column:1/-1;
+}
+
+label{
+    font-weight:bold;
+    margin-bottom:6px;
+    font-size:14px;
+}
+
+input,
+select,
+textarea{
+    padding:11px;
+    border:1px solid var(--border);
+    border-radius:6px;
+    outline:none;
+    width:100%;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:var(--primary);
+}
+
+textarea{
+    min-height:90px;
+    resize:vertical;
+}
+
+/* BUTTONS */
+
+.btn{
+    border:0;
+    padding:11px 16px;
+    border-radius:6px;
+    cursor:pointer;
+    font-weight:bold;
+    margin:5px;
+}
+
+.btn-primary{
+    background:var(--primary);
+    color:white;
+}
+
+.btn-primary:hover{
+    background:var(--secondary);
+}
+
+.btn-warning{
+    background:#f39c12;
+    color:white;
+}
+
+.btn-danger{
+    background:var(--danger);
+    color:white;
+}
+
+.btn-secondary{
+    background:#667085;
+    color:white;
+}
+
+.btn-success{
+    background:#198754;
+    color:white;
+}
+
+/* TABLE */
+
+.table-wrapper{
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:800px;
+}
+
+th{
+    background:var(--primary);
+    color:white;
+    padding:12px;
+    text-align:left;
+}
+
+td{
+    padding:11px;
+    border-bottom:1px solid #eaecf0;
+}
+
+tr:hover{
+    background:#f8faf9;
+}
+
+.action-btn{
+    border:0;
+    padding:6px 9px;
+    margin:2px;
+    border-radius:4px;
+    cursor:pointer;
+}
+
+.delete{
+    background:#c0392b;
+    color:white;
+}
+
+.view{
+    background:#126b3a;
+    color:white;
+}
+
+/* SEARCH */
+
+.search-box{
+    display:flex;
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.search-box input{
+    max-width:400px;
+}
+
+/* PHOTO */
+
+.student-photo{
+    width:110px;
+    height:130px;
+    object-fit:cover;
+    border:2px solid var(--primary);
+    border-radius:5px;
+    background:#f7faf8;
+}
+
+.photo-placeholder{
+    width:110px;
+    height:130px;
+    border:2px dashed #9cc7b0;
+    border-radius:5px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#6b7f72;
+    font-size:12px;
+    padding:10px;
+    text-align:center;
+    background:#f7faf8;
+}
+
+/* INFO */
+
+.profile-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    margin-top:20px;
+}
+
+.info-box{
+    padding:12px;
+    background:#f7faf8;
+    border-radius:6px;
+}
+
+.info-box span{
+    display:block;
+    font-size:12px;
+    color:#667085;
+}
+
+.info-box strong{
+    display:block;
+    margin-top:4px;
+}
+
+/* RESULT */
+
+.scores-note{
+    color:#667085;
+    font-size:13px;
+    margin:10px 0;
+}
+
+.result-summary{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    margin:15px 0;
+}
+
+.result-box{
+    background:#edf7f0;
+    padding:15px;
+    text-align:center;
+    border-radius:6px;
+}
+
+.result-box strong{
+    display:block;
+    font-size:22px;
+    color:var(--primary);
+}
+
+/* PRINT RESULT SLIP */
+
+.result-slip{
+    background:white;
+    max-width:950px;
+    margin:20px auto;
+    padding:30px;
+    border:1px solid #ddd;
+}
+
+.result-slip-header{
+    text-align:center;
+    border-bottom:3px solid var(--primary);
+    padding-bottom:15px;
+    margin-bottom:15px;
+}
+
+.result-slip-header h1{
+    color:var(--primary);
+    font-size:25px;
+}
+
+.result-slip-header p{
+    margin-top:5px;
+}
+
+.slip-student{
+    display:grid;
+    grid-template-columns:1fr 120px;
+    gap:20px;
+    margin-bottom:20px;
+}
+
+.slip-details{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:8px;
+}
+
+.slip-detail{
+    background:#f5f8f6;
+    padding:9px;
+    border-radius:4px;
+}
+
+.slip-detail span{
+    display:block;
+    font-size:11px;
+    color:#667085;
+}
+
+.slip-photo{
+    width:110px;
+    height:130px;
+    object-fit:cover;
+    border:2px solid var(--primary);
+}
+
+.result-slip table{
+    min-width:0;
+    width:100%;
+}
+
+.result-slip th{
+    font-size:11px;
+    text-align:center;
+}
+
+.result-slip td{
+    font-size:11px;
+    text-align:center;
+}
+
+.result-summary-slip{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:10px;
+    margin-top:20px;
+}
+
+.summary-item{
+    border:1px solid #ddd;
+    padding:12px;
+    text-align:center;
+}
+
+.summary-item span{
+    display:block;
+    font-size:12px;
+    color:#667085;
+}
+
+.summary-item strong{
+    display:block;
+    font-size:20px;
+    color:var(--primary);
+    margin-top:5px;
+}
+
+.slip-signatures{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:80px;
+    margin-top:60px;
+}
+
+.signature-line{
+    border-top:1px solid #333;
+    padding-top:8px;
+    text-align:center;
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    padding:15px;
+    background:#103b25;
+    color:white;
+    font-size:13px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .container{
+        flex-direction:column;
+    }
+
+    .sidebar{
+        width:100%;
+        display:flex;
+        overflow-x:auto;
+    }
+
+    .sidebar button{
+        min-width:140px;
+    }
+
+    .cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px){
+
+    .header{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .main{
+        padding:15px;
+    }
+
+    .form-grid,
+    .profile-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .result-summary-slip{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .slip-student{
+        grid-template-columns:1fr;
+    }
+
+    .slip-details{
+        grid-template-columns:1fr;
+    }
+
+    table{
+        min-width:650px;
+    }
+}
+
+/* PRINT */
+
+@media print{
+
+    body *{
+        visibility:hidden;
+    }
+
+    #printArea,
+    #printArea *{
+        visibility:visible;
+    }
+
+    #printArea{
+        position:absolute;
+        left:0;
+        top:0;
+        width:100%;
+    }
+
+    .result-slip{
+        border:0;
+        margin:0;
+        max-width:none;
+    }
+
+    @page{
+        size:A4 landscape;
+        margin:10mm;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="marquee">
+WELCOME TO GOD FIRST COMPREHENSIVE COLLEGE, GUNGUL — E-DOSSIER PLATFORM DESIGNED AND POWERED BY BONIFACE USHAHEMBA, SOFTWARE DEVELOPER / DATA ANALYST AT 3MTT-NITDA NIGERIA / NIYA — 21ST AUGUST, 2026
+</div>
+
+<header class="header">
+
+<div class="school-title">
+
+<h1>GOD FIRST COMPREHENSIVE COLLEGE, GUNGUL</h1>
+
+<p>HOLD UNTO GOD FOR ALL EXCELLENCE</p>
+
+<p>
+<strong>
+STUDENT ELECTRONIC DOSSIER MANAGEMENT SYSTEM
+</strong>
+</p>
+
+</div>
+
+<div class="logo">
+GOD<br>
+FIRST<br>
+COLLEGE
+</div>
+
+</header>
+
+
+<div class="container">
+
+<aside class="sidebar">
+
+<button class="active"
+onclick="showSection('dashboard',this)">
+🏠 Dashboard
+</button>
+
+<button onclick="showSection('students',this)">
+👨‍🎓 Students
+</button>
+
+<button onclick="showSection('register',this)">
+➕ Register Student
+</button>
+
+<button onclick="showSection('results',this)">
+📊 Results
+</button>
+
+<button onclick="showSection('search',this)">
+🔎 Search Dossier
+</button>
+
+<button onclick="showSection('backup',this)">
+💾 Backup / Restore
+</button>
+
+</aside>
+
+
+<main class="main">
+
+
+<!-- ================= DASHBOARD ================= -->
+
+<section id="dashboard" class="section active">
+
+<div class="page-title">
+
+<h2>School Dashboard</h2>
+
+<p>
+Welcome to the God First Comprehensive College Gungul E-Dossier System.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Total Students</h3>
+
+<strong id="totalStudents">0</strong>
+
+</div>
+
+
+<div class="card">
+
+<h3>Basic Students</h3>
+
+<strong id="basicStudents">0</strong>
+
+</div>
+
+
+<div class="card">
+
+<h3>Senior Students</h3>
+
+<strong id="seniorStudents">0</strong>
+
+</div>
+
+
+<div class="card">
+
+<h3>Current Session</h3>
+
+<strong style="font-size:20px">
+2026/2027
+</strong>
+
+</div>
+
+</div>
+
+
+<div class="form-card">
+
+<h3>School Information</h3>
+
+<div class="profile-grid">
+
+<div class="info-box">
+
+<span>School</span>
+
+<strong>
+God First Comprehensive College Gungul
+</strong>
+
+</div>
+
+<div class="info-box">
+
+<span>Motto</span>
+
+<strong>
+Hold Unto God For All Excellence
+</strong>
+
+</div>
+
+<div class="info-box">
+
+<span>Classes Covered</span>
+
+<strong>
+Basic 7 – Basic 9, SS1 – SS3
+</strong>
+
+</div>
+
+<div class="info-box">
+
+<span>Scoring System</span>
+
+<strong>
+CA 30 + Examination 70 = 100
+</strong>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= REGISTER ================= -->
+
+<section id="register" class="section">
+
+<div class="page-title">
+
+<h2>Register New Student</h2>
+
+<p>
+Create a new electronic student dossier.
+</p>
+
+</div>
+
+
+<div class="form-card">
+
+<form id="studentForm">
+
+<div class="form-grid">
+
+
+<div class="form-group">
+
+<label>Student ID</label>
+
+<input id="studentId" readonly>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Admission Number</label>
+
+<input id="admissionNo" required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>First Name</label>
+
+<input id="firstName" required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Middle Name</label>
+
+<input id="middleName">
+
+</div>
+
+
+<div class="form-group">
+
+<label>Surname</label>
+
+<input id="surname" required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Gender</label>
+
+<select id="gender" required>
+
+<option value="">
+Select Gender
+</option>
+
+<option>Male</option>
+
+<option>Female</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Date of Birth</label>
+
+<input type="date" id="dob">
+
+</div>
+
+
+<div class="form-group">
+
+<label>Class</label>
+
+<select id="studentClass" required>
+
+<option value="">
+Select Class
+</option>
+
+<option>Basic 7</option>
+<option>Basic 8</option>
+<option>Basic 9</option>
+<option>SS1</option>
+<option>SS2</option>
+<option>SS3</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Academic Session</label>
+
+<select id="session">
+
+<option>2026/2027</option>
+<option>2025/2026</option>
+<option>2027/2028</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Term</label>
+
+<select id="term">
+
+<option>First Term</option>
+<option>Second Term</option>
+<option>Third Term</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Parent/Guardian Name</label>
+
+<input id="guardian">
+
+</div>
+
+
+<div class="form-group">
+
+<label>Parent/Guardian Phone</label>
+
+<input id="guardianPhone">
+
+</div>
+
+
+<div class="form-group full">
+
+<label>Passport Picture</label>
+
+<input
+type="file"
+id="passportPic"
+accept="image/*"
+>
+
+<div style="margin-top:10px;">
+
+<div id="passportPreview"
+class="photo-placeholder">
+
+No image selected
+
+</div>
+
+</div>
+
+<input
+type="hidden"
+id="passportPicData"
+>
+
+</div>
+
+
+<div class="form-group full">
+
+<label>Address</label>
+
+<textarea id="address"></textarea>
+
+</div>
+
+
+<div class="form-group full">
+
+<label>Medical / Special Information</label>
+
+<textarea id="medical"></textarea>
+
+</div>
+
+</div>
+
+
+<button class="btn btn-primary" type="submit">
+💾 Save Student
+</button>
+
+<button
+class="btn btn-secondary"
+type="reset"
+onclick="generateStudentID()">
+
+Clear
+
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+
+<!-- ================= STUDENTS ================= -->
+
+<section id="students" class="section">
+
+<div class="page-title">
+
+<h2>Student Records</h2>
+
+<p>
+All registered students.
+</p>
+
+</div>
+
+
+<div class="table-card">
+
+<div class="search-box">
+
+<input
+id="studentSearch"
+placeholder="Search by name, ID or class..."
+oninput="displayStudents()"
+>
+
+</div>
+
+
+<div class="table-wrapper">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>ID</th>
+<th>Admission No.</th>
+<th>Name</th>
+<th>Gender</th>
+<th>Class</th>
+<th>Session</th>
+<th>Actions</th>
+
+</tr>
+
+</thead>
+
+<tbody id="studentTable"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= RESULTS ================= -->
+
+<section id="results" class="section">
+
+<div class="page-title">
+
+<h2>Academic Results</h2>
+
+<p>
+CA 1 + CA 2 + CA 3 = 30 marks;
+Examination = 70 marks;
+Total = 100 marks.
+</p>
+
+</div>
+
+
+<div class="form-card">
+
+<div class="form-grid">
+
+
+<div class="form-group">
+
+<label>Select Student</label>
+
+<select id="resultStudent"></select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Subject</label>
+
+<input
+id="subject"
+placeholder="e.g. Mathematics"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>CA 1 (0 - 10)</label>
+
+<input
+type="number"
+id="ca1"
+min="0"
+max="10"
+step="1"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>CA 2 (0 - 10)</label>
+
+<input
+type="number"
+id="ca2"
+min="0"
+max="10"
+step="1"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>CA 3 (0 - 10)</label>
+
+<input
+type="number"
+id="ca3"
+min="0"
+max="10"
+step="1"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Examination (0 - 70)</label>
+
+<input
+type="number"
+id="exam"
+min="0"
+max="70"
+step="1"
+>
+
+</div>
+
+
+<div class="form-group full">
+
+<div class="scores-note">
+
+<strong>Scoring:</strong>
+
+CA 1 /10 + CA 2 /10 + CA 3 /10
+= <strong>CA Total /30</strong>
+
+<br>
+
+CA Total /30 + Examination /70
+= <strong>Final Total /100</strong>
+
+</div>
+
+</div>
+
+</div>
+
+
+<button
+class="btn btn-primary"
+onclick="saveResult()">
+
+💾 Save Result
+
+</button>
+
+
+<button
+class="btn btn-secondary"
+onclick="clearResultForm()">
+
+Clear
+
+</button>
+
+</div>
+
+
+<div class="table-card">
+
+<div style="
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
+flex-wrap:wrap;
+margin-bottom:15px;
+">
+
+<h3>Entered Results</h3>
+
+<button
+class="btn btn-success"
+onclick="printSelectedResult()">
+
+🖨️ Print Result Slip
+
+</button>
+
+</div>
+
+
+<div class="table-wrapper">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Student</th>
+<th>Subject</th>
+<th>CA 1 /10</th>
+<th>CA 2 /10</th>
+<th>CA 3 /10</th>
+<th>CA Total /30</th>
+<th>Exam /70</th>
+<th>Total /100</th>
+<th>%</th>
+<th>Grade</th>
+<th>Remark</th>
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="resultTable"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= SEARCH ================= -->
+
+<section id="search" class="section">
+
+<div class="page-title">
+
+<h2>Search Student Dossier</h2>
+
+<p>
+Find and view a complete student's record.
+</p>
+
+</div>
+
+
+<div class="form-card">
+
+<div class="search-box">
+
+<input
+id="dossierSearch"
+placeholder="Enter Student ID, admission number or name"
+>
+
+<button
+class="btn btn-primary"
+onclick="searchDossier()">
+
+Search
+
+</button>
+
+</div>
+
+</div>
+
+
+<div id="studentProfile"></div>
+
+</section>
+
+
+<!-- ================= BACKUP ================= -->
+
+<section id="backup" class="section">
+
+<div class="page-title">
+
+<h2>Backup & Restore</h2>
+
+<p>
+Protect your school records by exporting them regularly.
+</p>
+
+</div>
+
+
+<div class="form-card">
+
+<h3>Export Database</h3>
+
+<p style="margin:10px 0">
+
+Download all student and result records
+as a JSON backup.
+
+</p>
+
+<button
+class="btn btn-success"
+onclick="exportData()">
+
+⬇ Export Backup
+
+</button>
+
+</div>
+
+
+<div class="form-card">
+
+<h3>Import Database</h3>
+
+<p style="margin:10px 0">
+
+Restore a previously exported backup file.
+
+</p>
+
+<input
+type="file"
+id="importFile"
+accept=".json"
+>
+
+<button
+class="btn btn-primary"
+onclick="importData()">
+
+⬆ Import Backup
+
+</button>
+
+</div>
+
+
+<div class="form-card">
+
+<h3>Danger Zone</h3>
+
+<p style="margin:10px 0">
+
+Delete all records from this browser.
+
+</p>
+
+<button
+class="btn btn-danger"
+onclick="clearDatabase()">
+
+Delete All Data
+
+</button>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+
+<footer class="footer">
+
+God First Comprehensive College Gungul |
+
+Hold Unto God For All Excellence |
+
+E-Dossier Management System
+
+</footer>
+
+
+<script>
+
+/* ==========================================
+DATABASE
+========================================== */
+
+let students =
+JSON.parse(localStorage.getItem("gfcc_students")) || [];
+
+let results =
+JSON.parse(localStorage.getItem("gfcc_results")) || [];
+
+
+/* ==========================================
+SAVE DATABASE
+========================================== */
+
+function saveDatabase(){
+
+localStorage.setItem(
+"gfcc_students",
+JSON.stringify(students)
+);
+
+localStorage.setItem(
+"gfcc_results",
+JSON.stringify(results)
+);
+
+}
+
+
+/* ==========================================
+NAVIGATION
+========================================== */
+
+function showSection(id,button){
+
+document.querySelectorAll(".section")
+.forEach(section=>{
+section.classList.remove("active");
+});
+
+document.getElementById(id)
+.classList.add("active");
+
+
+document.querySelectorAll(".sidebar button")
+.forEach(btn=>{
+btn.classList.remove("active");
+});
+
+
+if(button){
+button.classList.add("active");
+}
+
+
+if(id==="students"){
+displayStudents();
+}
+
+if(id==="results"){
+loadStudentDropdown();
+displayResults();
+}
+
+if(id==="dashboard"){
+updateDashboard();
+}
+
+if(id==="register"){
+generateStudentID();
+}
+
+}
+
+
+/* ==========================================
+STUDENT ID
+========================================== */
+
+function generateStudentID(){
+
+let year =
+new Date().getFullYear();
+
+let number =
+String(students.length + 1)
+.padStart(4,"0");
+
+document.getElementById("studentId")
+.value =
+"GFCC/"+year+"/"+number;
+
+}
+
+
+/* ==========================================
+PASSPORT
+========================================== */
+
+document
+.getElementById("passportPic")
+.addEventListener("change",function(){
+
+const file = this.files[0];
+
+if(!file){
+
+document.getElementById("passportPreview")
+.innerHTML =
+"No image selected";
+
+document.getElementById("passportPicData")
+.value="";
+
+return;
+
+}
+
+
+const reader = new FileReader();
+
+reader.onload=function(e){
+
+const data=e.target.result;
+
+document
+.getElementById("passportPicData")
+.value=data;
+
+document
+.getElementById("passportPreview")
+.innerHTML=`
+
+<img
+src="${data}"
+style="
+width:100%;
+height:100%;
+object-fit:cover;
+border-radius:5px;
+">
+
+`;
+
+};
+
+reader.readAsDataURL(file);
+
+});
+
+
+/* ==========================================
+REGISTER STUDENT
+========================================== */
+
+document
+.getElementById("studentForm")
+.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+
+let student={
+
+id:
+document.getElementById("studentId").value,
+
+admissionNo:
+document.getElementById("admissionNo").value.trim(),
+
+firstName:
+document.getElementById("firstName").value.trim(),
+
+middleName:
+document.getElementById("middleName").value.trim(),
+
+surname:
+document.getElementById("surname").value.trim(),
+
+gender:
+document.getElementById("gender").value,
+
+dob:
+document.getElementById("dob").value,
+
+class:
+document.getElementById("studentClass").value,
+
+session:
+document.getElementById("session").value,
+
+term:
+document.getElementById("term").value,
+
+guardian:
+document.getElementById("guardian").value.trim(),
+
+guardianPhone:
+document.getElementById("guardianPhone").value.trim(),
+
+address:
+document.getElementById("address").value.trim(),
+
+medical:
+document.getElementById("medical").value.trim(),
+
+passportPic:
+document.getElementById("passportPicData").value || "",
+
+dateRegistered:
+new Date().toISOString()
+
+};
+
+
+students.push(student);
+
+saveDatabase();
+
+alert("Student successfully registered.");
+
+this.reset();
+
+document.getElementById("passportPreview")
+.innerHTML="No image selected";
+
+document.getElementById("passportPicData")
+.value="";
+
+generateStudentID();
+
+updateDashboard();
+
+});
+
+
+/* ==========================================
+DISPLAY STUDENTS
+========================================== */
+
+function displayStudents(){
+
+const table =
+document.getElementById("studentTable");
+
+if(!table) return;
+
+const search =
+(document.getElementById("studentSearch").value || "")
+.toLowerCase();
+
+table.innerHTML="";
+
+
+students
+.filter(s=>{
+
+const text=
+`${s.id}
+${s.admissionNo}
+${s.firstName}
+${s.middleName}
+${s.surname}
+${s.class}`
+.toLowerCase();
+
+return text.includes(search);
+
+})
+.forEach(s=>{
+
+const row=document.createElement("tr");
+
+row.innerHTML=`
+
+<td>${escapeHTML(s.id)}</td>
+
+<td>${escapeHTML(s.admissionNo)}</td>
+
+<td>
+${escapeHTML(
+`${s.firstName} ${s.middleName || ""} ${s.surname}`
+.replace(/\s+/g," ")
+.trim()
+)}
+</td>
+
+<td>${escapeHTML(s.gender)}</td>
+
+<td>${escapeHTML(s.class)}</td>
+
+<td>${escapeHTML(s.session)}</td>
+
+<td>
+
+<button
+class="action-btn view"
+onclick="viewDossier('${s.id}')">
+
+View
+
+</button>
+
+<button
+class="action-btn delete"
+onclick="deleteStudent('${s.id}')">
+
+Delete
+
+</button>
+
+</td>
+
+`;
+
+table.appendChild(row);
+
+});
+
+}
+
+
+/* ==========================================
+DELETE STUDENT
+========================================== */
+
+function deleteStudent(id){
+
+if(!confirm(
+"Delete this student and all associated results?"
+)) return;
+
+
+students =
+students.filter(s=>s.id!==id);
+
+results =
+results.filter(r=>r.studentId!==id);
+
+saveDatabase();
+
+displayStudents();
+
+updateDashboard();
+
+}
+
+
+/* ==========================================
+LOAD STUDENT DROPDOWN
+========================================== */
+
+function loadStudentDropdown(){
+
+const select =
+document.getElementById("resultStudent");
+
+select.innerHTML=
+`<option value="">Select Student</option>`;
+
+
+students.forEach(student=>{
+
+const option=document.createElement("option");
+
+option.value=student.id;
+
+option.textContent=
+`${student.id} - ${student.firstName} ${student.surname} - ${student.class}`;
+
+select.appendChild(option);
+
+});
+
+}
+
+
+/* ==========================================
+GRADE
+========================================== */
+
+function getGrade(score){
+
+if(score>=80){
+
+return {
+grade:"A",
+remark:"Excellent"
+};
+
+}
+
+if(score>=70){
+
+return {
+grade:"B",
+remark:"Very Good"
+};
+
+}
+
+if(score>=60){
+
+return {
+grade:"C",
+remark:"Good"
+};
+
+}
+
+if(score>=50){
+
+return {
+grade:"D",
+remark:"Credit"
+};
+
+}
+
+if(score>=40){
+
+return {
+grade:"E",
+remark:"Pass"
+};
+
+}
+
+return {
+grade:"F",
+remark:"Fail"
+};
+
+}
+
+
+/* ==========================================
+SAVE RESULT
+========================================== */
+
+function saveResult(){
+
+const studentId =
+document.getElementById("resultStudent").value;
+
+const subject =
+document.getElementById("subject").value.trim();
+
+const ca1 =
+Number(document.getElementById("ca1").value);
+
+const ca2 =
+Number(document.getElementById("ca2").value);
+
+const ca3 =
+Number(document.getElementById("ca3").value);
+
+const exam =
+Number(document.getElementById("exam").value);
+
+
+if(!studentId){
+
+alert("Please select a student.");
+
+return;
+
+}
+
+
+if(!subject){
+
+alert("Please enter the subject.");
+
+return;
+
+}
+
+
+if(
+ca1<0 || ca1>10 ||
+ca2<0 || ca2>10 ||
+ca3<0 || ca3>10 ||
+exam<0 || exam>70
+){
+
+alert(
+"Invalid score. CA scores must be 0-10 and Examination must be 0-70."
+);
+
+return;
+
+}
+
+
+const student =
+students.find(s=>s.id===studentId);
+
+
+if(!student){
+
+alert("Student not found.");
+
+return;
+
+}
+
+
+/* CA TOTAL */
+
+const caTotal =
+ca1+ca2+ca3;
+
+
+/* FINAL TOTAL OUT OF 100 */
+
+const total =
+caTotal+exam;
+
+
+/* PERCENTAGE */
+
+const percentage =
+total;
+
+
+/* GRADE */
+
+const grading =
+getGrade(percentage);
+
+
+const result={
+
+id:
+Date.now().toString(),
+
+studentId:
+student.id,
+
+studentName:
+`${student.firstName} ${student.middleName || ""} ${student.surname}`
+.replace(/\s+/g," ")
+.trim(),
+
+subject:
+
+subject,
+
+ca1:
+ca1,
+
+ca2:
+ca2,
+
+ca3:
+ca3,
+
+caTotal:
+caTotal,
+
+exam:
+exam,
+
+total:
+total,
+
+percentage:
+percentage,
+
+grade:
+grading.grade,
+
+remark:
+grading.remark,
+
+class:
+student.class,
+
+session:
+student.session,
+
+term:
+student.term,
+
+date:
+new Date().toISOString()
+
+};
+
+
+results.push(result);
+
+saveDatabase();
+
+alert("Result saved successfully.");
+
+clearResultForm();
+
+displayResults();
+
+}
+
+
+/* ==========================================
+DISPLAY RESULTS
+========================================== */
+
+function displayResults(){
+
+const table =
+document.getElementById("resultTable");
+
+if(!table) return;
+
+table.innerHTML="";
+
+
+results.forEach(result=>{
+
+const row=
+document.createElement("tr");
+
+
+row.innerHTML=`
+
+<td>
+${escapeHTML(result.studentName)}
+</td>
+
+<td>
+${escapeHTML(result.subject)}
+</td>
+
+<td>
+${result.ca1}
+</td>
+
+<td>
+${result.ca2}
+</td>
+
+<td>
+${result.ca3}
+</td>
+
+<td>
+<strong>${result.caTotal}/30</strong>
+</td>
+
+<td>
+${result.exam}
+</td>
+
+<td>
+<strong>${result.total}/100</strong>
+</td>
+
+<td>
+${Number(result.percentage).toFixed(1)}%
+</td>
+
+<td>
+<strong>${result.grade}</strong>
+</td>
+
+<td>
+${result.remark}
+</td>
+
+<td>
+
+<button
+class="action-btn delete"
+onclick="deleteResult('${result.id}')">
+
+Delete
+
+</button>
+
+</td>
+
+`;
+
+table.appendChild(row);
+
+});
+
+}
+
+
+/* ==========================================
+DELETE RESULT
+========================================== */
+
+function deleteResult(id){
+
+if(!confirm("Delete this result?")) return;
+
+results =
+results.filter(r=>r.id!==id);
+
+saveDatabase();
+
+displayResults();
+
+}
+
+
+/* ==========================================
+CLEAR RESULT FORM
+========================================== */
+
+function clearResultForm(){
+
+document.getElementById("subject").value="";
+
+document.getElementById("ca1").value="";
+
+document.getElementById("ca2").value="";
+
+document.getElementById("ca3").value="";
+
+document.getElementById("exam").value="";
+
+}
+
+
+/* ==========================================
+STUDENT STATISTICS
+========================================== */
+
+function getStudentResultStatistics(student){
+
+const studentResults =
+results.filter(r=>
+
+r.studentId===student.id &&
+
+r.class===student.class &&
+
+r.session===student.session &&
+
+r.term===student.term
+
+);
+
+
+if(studentResults.length===0){
+
+return{
+
+average:0,
+
+total:0,
+
+position:"N/A",
+
+subjects:0
+
+};
+
+}
+
+
+/* TOTAL */
+
+const total =
+studentResults.reduce(
+(sum,r)=>sum+Number(r.total),0
+);
+
+
+/* AVERAGE */
+
+const average =
+total/studentResults.length;
+
+
+/*
+COMPARE WITH STUDENTS
+IN SAME CLASS, SESSION AND TERM
+*/
+
+const classmates=[];
+
+
+students.forEach(s=>{
+
+const records =
+results.filter(r=>
+
+r.studentId===s.id &&
+
+r.class===student.class &&
+
+r.session===student.session &&
+
+r.term===student.term
+
+);
+
+
+if(records.length>0){
+
+const studentTotal =
+records.reduce(
+(sum,r)=>sum+Number(r.total),0
+);
+
+
+const studentAverage =
+studentTotal/records.length;
+
+
+classmates.push({
+
+studentId:s.id,
+
+average:studentAverage
+
+});
+
+}
+
+});
+
+
+classmates.sort(
+(a,b)=>b.average-a.average
+);
+
+
+/* COMPETITION RANKING */
+
+let position=1;
+
+for(let i=0;i<classmates.length;i++){
+
+if(
+i>0 &&
+classmates[i].average <
+classmates[i-1].average
+){
+
+position=i+1;
+
+}
+
+
+if(
+classmates[i].studentId===student.id
+){
+
+break;
+
+}
+
+}
+
+
+return{
+
+average:average,
+
+total:total,
+
+position:position,
+
+subjects:studentResults.length
+
+};
+
+}
+
+
+/* ==========================================
+PRINT RESULT SLIP
+========================================== */
+
+function printSelectedResult(){
+
+const studentId =
+document.getElementById("resultStudent").value;
+
+
+if(!studentId){
+
+alert("Please select a student first.");
+
+return;
+
+}
+
+
+const student =
+students.find(s=>s.id===studentId);
+
+
+if(!student){
+
+alert("Student not found.");
+
+return;
+
+}
+
+
+const studentResults =
+results.filter(r=>
+
+r.studentId===student.id &&
+
+r.class===student.class &&
+
+r.session===student.session &&
+
+r.term===student.term
+
+);
+
+
+if(studentResults.length===0){
+
+alert(
+"No results have been entered for this student."
+);
+
+return;
+
+}
+
+
+const statistics =
+getStudentResultStatistics(student);
+
+
+const photo =
+student.passportPic
+
+?
+
+`
+<img
+src="${student.passportPic}"
+class="slip-photo"
+alt="Student Passport">
+`
+
+:
+
+`
+
+<div
+class="photo-placeholder"
+style="width:110px;height:130px;">
+
+NO PHOTO
+
+</div>
+
+`;
+
+
+let rows="";
+
+
+studentResults.forEach((r,index)=>{
+
+rows+=`
+
+<tr>
+
+<td>${index+1}</td>
+
+<td>
+${escapeHTML(r.subject)}
+</td>
+
+<td>${r.ca1}</td>
+
+<td>${r.ca2}</td>
+
+<td>${r.ca3}</td>
+
+<td>
+<strong>${r.caTotal}</strong>
+</td>
+
+<td>${r.exam}</td>
+
+<td>
+<strong>${r.total}</strong>
+</td>
+
+<td>
+${Number(r.percentage).toFixed(1)}%
+</td>
+
+<td>
+${r.grade}
+</td>
+
+<td>
+${r.remark}
+</td>
+
+</tr>
+
+`;
+
+});
+
+
+const overallPercentage =
+statistics.average;
+
+
+const overallGrade =
+getGrade(overallPercentage);
+
+
+const printArea =
+document.createElement("div");
+
+printArea.id="printArea";
+
+
+printArea.innerHTML=`
+
+<div class="result-slip">
+
+
+<div class="result-slip-header">
+
+<h1>
+GOD FIRST COMPREHENSIVE COLLEGE, GUNGUL
+</h1>
+
+<p>
+<strong>
+HOLD UNTO GOD FOR ALL EXCELLENCE
+</strong>
+</p>
+
+<p>
+<strong>
+STUDENT ACADEMIC RESULT
+</strong>
+</p>
+
+<p>
+${escapeHTML(student.session)}
+—
+${escapeHTML(student.term)}
+</p>
+
+</div>
+
+
+<div class="slip-student">
+
+
+<div class="slip-details">
+
+
+<div class="slip-detail">
+
+<span>Student ID</span>
+
+<strong>
+${escapeHTML(student.id)}
+</strong>
+
+</div>
+
+
+<div class="slip-detail">
+
+<span>Admission Number</span>
+
+<strong>
+${escapeHTML(student.admissionNo)}
+</strong>
+
+</div>
+
+
+<div class="slip-detail">
+
+<span>Student Name</span>
+
+<strong>
+
+${escapeHTML(
+
+`${student.firstName}
+${student.middleName || ""}
+${student.surname}`
+.replace(/\s+/g," ")
+.trim()
+
+)}
+
+</strong>
+
+</div>
+
+
+<div class="slip-detail">
+
+<span>Gender</span>
+
+<strong>
+${escapeHTML(student.gender)}
+</strong>
+
+</div>
+
+
+<div class="slip-detail">
+
+<span>Class</span>
+
+<strong>
+${escapeHTML(student.class)}
+</strong>
+
+</div>
+
+
+<div class="slip-detail">
+
+<span>Session</span>
+
+<strong>
+${escapeHTML(student.session)}
+</strong>
+
+</div>
+
+
+<div class="slip-detail">
+
+<span>Term</span>
+
+<strong>
+${escapeHTML(student.term)}
+</strong>
+
+</div>
+
+
+<div class="slip-detail">
+
+<span>Subjects Offered</span>
+
+<strong>
+${statistics.subjects}
+</strong>
+
+</div>
+
+
+</div>
+
+
+${photo}
+
+
+</div>
+
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>S/N</th>
+
+<th>SUBJECT</th>
+
+<th>CA 1<br>/10</th>
+
+<th>CA 2<br>/10</th>
+
+<th>CA 3<br>/10</th>
+
+<th>CA TOTAL<br>/30</th>
+
+<th>EXAM<br>/70</th>
+
+<th>TOTAL<br>/100</th>
+
+<th>%</th>
+
+<th>GRADE</th>
+
+<th>REMARK</th>
+
+</tr>
+
+</thead>
+
+
+<tbody>
+
+${rows}
+
+</tbody>
+
+</table>
+
+
+<div class="result-summary-slip">
+
+
+<div class="summary-item">
+
+<span>Total Score</span>
+
+<strong>
+${statistics.total}
+</strong>
+
+</div>
+
+
+<div class="summary-item">
+
+<span>Average</span>
+
+<strong>
+${statistics.average.toFixed(2)}%
+</strong>
+
+</div>
+
+
+<div class="summary-item">
+
+<span>Percentage</span>
+
+<strong>
+${overallPercentage.toFixed(2)}%
+</strong>
+
+</div>
+
+
+<div class="summary-item">
+
+<span>Position</span>
+
+<strong>
+${statistics.position}
+</strong>
+
+</div>
+
+
+<div class="summary-item">
+
+<span>Grade</span>
+
+<strong>
+${overallGrade.grade}
+</strong>
+
+</div>
+
+
+</div>
+
+
+<div style="
+margin-top:20px;
+padding:15px;
+border:1px solid #ddd;
+">
+
+<p>
+
+<strong>Overall Grade:</strong>
+
+${overallGrade.grade}
+
+</p>
+
+
+<p style="margin-top:8px;">
+
+<strong>Overall Remark:</strong>
+
+${overallGrade.remark}
+
+</p>
+
+</div>
+
+
+<div class="slip-signatures">
+
+<div class="signature-line">
+
+Class Teacher's Signature
+
+</div>
+
+
+<div class="signature-line">
+
+Principal's Signature
+
+</div>
+
+</div>
+
+
+<p style="
+text-align:center;
+margin-top:30px;
+font-size:11px;
+">
+
+Generated by God First Comprehensive College Gungul
+E-Dossier Management System
+
+</p>
+
+
+</div>
+
+`;
+
+
+document.body.appendChild(printArea);
+
+window.print();
+
+
+setTimeout(()=>{
+
+printArea.remove();
+
+},1000);
+
+}
+
+
+/* ==========================================
+SEARCH DOSSIER
+========================================== */
+
+function searchDossier(){
+
+const query =
+document.getElementById("dossierSearch")
+.value
+.toLowerCase()
+.trim();
+
+
+const student =
+students.find(s=>{
+
+const name =
+`${s.firstName}
+${s.middleName || ""}
+${s.surname}`
+.toLowerCase();
+
+
+return (
+
+s.id.toLowerCase()===query ||
+
+s.admissionNo.toLowerCase()===query ||
+
+name.includes(query)
+
+);
+
+});
+
+
+if(!student){
+
+document.getElementById("studentProfile")
+.innerHTML=`
+
+<div class="form-card">
+
+<h3>
+Student not found.
+</h3>
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+viewDossier(student.id);
+
+}
+
+
+/* ==========================================
+VIEW DOSSIER
+========================================== */
+
+function viewDossier(id){
+
+const student =
+students.find(s=>s.id===id);
+
+
+if(!student) return;
+
+
+const studentResults =
+results.filter(r=>r.studentId===id);
+
+
+const statistics =
+getStudentResultStatistics(student);
+
+
+const photo =
+student.passportPic
+
+?
+
+`
+<img
+src="${student.passportPic}"
+class="student-photo">
+`
+
+:
+
+`
+
+<div class="photo-placeholder">
+
+NO PHOTO
+
+</div>
+
+`;
+
+
+let rows="";
+
+
+studentResults.forEach(r=>{
+
+rows+=`
+
+<tr>
+
+<td>${escapeHTML(r.subject)}</td>
+
+<td>${r.ca1}</td>
+
+<td>${r.ca2}</td>
+
+<td>${r.ca3}</td>
+
+<td>${r.caTotal}</td>
+
+<td>${r.exam}</td>
+
+<td>${r.total}</td>
+
+<td>${r.percentage.toFixed(1)}%</td>
+
+<td>${r.grade}</td>
+
+<td>${r.remark}</td>
+
+</tr>
+
+`;
+
+});
+
+
+document.getElementById("studentProfile")
+.innerHTML=`
+
+<div class="form-card">
+
+<div style="
+display:flex;
+gap:20px;
+align-items:flex-start;
+flex-wrap:wrap;
+">
+
+${photo}
+
+
+<div style="flex:1">
+
+<h2>
+
+${escapeHTML(
+`${student.firstName}
+${student.middleName || ""}
+${student.surname}`
+.replace(/\s+/g," ")
+.trim()
+)}
+
+</h2>
+
+<p>
+Student ID:
+<strong>${escapeHTML(student.id)}</strong>
+</p>
+
+<p>
+Admission No:
+<strong>${escapeHTML(student.admissionNo)}</strong>
+</p>
+
+<p>
+Class:
+<strong>${escapeHTML(student.class)}</strong>
+</p>
+
+</div>
+
+</div>
+
+
+<div class="profile-grid">
+
+
+<div class="info-box">
+
+<span>Gender</span>
+
+<strong>${escapeHTML(student.gender)}</strong>
+
+</div>
+
+
+<div class="info-box">
+
+<span>Date of Birth</span>
+
+<strong>${escapeHTML(student.dob)}</strong>
+
+</div>
+
+
+<div class="info-box">
+
+<span>Parent/Guardian</span>
+
+<strong>${escapeHTML(student.guardian)}</strong>
+
+</div>
+
+
+<div class="info-box">
+
+<span>Phone</span>
+
+<strong>${escapeHTML(student.guardianPhone)}</strong>
+
+</div>
+
+
+<div class="info-box">
+
+<span>Address</span>
+
+<strong>${escapeHTML(student.address)}</strong>
+
+</div>
+
+
+<div class="info-box">
+
+<span>Medical / Special Information</span>
+
+<strong>${escapeHTML(student.medical)}</strong>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<div class="table-card">
+
+<h3>
+Academic Performance
+</h3>
+
+<div class="table-wrapper">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Subject</th>
+<th>CA 1</th>
+<th>CA 2</th>
+<th>CA 3</th>
+<th>CA Total</th>
+<th>Exam</th>
+<th>Total</th>
+<th>%</th>
+<th>Grade</th>
+<th>Remark</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+${rows}
+
+</tbody>
+
+</table>
+
+</div>
+
+
+<div class="result-summary">
+
+<div class="result-box">
+
+Average
+
+<strong>
+${statistics.average.toFixed(2)}%
+</strong>
+
+</div>
+
+
+<div class="result-box">
+
+Total
+
+<strong>
+${statistics.total}
+</strong>
+
+</div>
+
+
+<div class="result-box">
+
+Position
+
+<strong>
+${statistics.position}
+</strong>
+
+</div>
+
+
+<div class="result-box">
+
+Subjects
+
+<strong>
+${statistics.subjects}
+</strong>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+
+/* ==========================================
+DASHBOARD
+========================================== */
+
+function updateDashboard(){
+
+document.getElementById("totalStudents")
+.textContent=students.length;
+
+
+document.getElementById("basicStudents")
+.textContent=
+
+students.filter(s=>
+
+["Basic 7","Basic 8","Basic 9"]
+.includes(s.class)
+
+).length;
+
+
+document.getElementById("seniorStudents")
+.textContent=
+
+students.filter(s=>
+
+["SS1","SS2","SS3"]
+.includes(s.class)
+
+).length;
+
+}
+
+
+/* ==========================================
+BACKUP
+========================================== */
+
+function exportData(){
+
+const data={
+
+school:
+"God First Comprehensive College Gungul",
+
+exportDate:
+new Date().toISOString(),
+
+students:
+students,
+
+results:
+results
+
+};
+
+
+const blob=
+new Blob(
+[JSON.stringify(data,null,2)],
+{type:"application/json"}
+);
+
+
+const url=
+URL.createObjectURL(blob);
+
+
+const a=
+document.createElement("a");
+
+a.href=url;
+
+a.download=
+"GFCC_E-Dossier_Backup.json";
+
+a.click();
+
+URL.revokeObjectURL(url);
+
+}
+
+
+/* ==========================================
+IMPORT
+========================================== */
+
+function importData(){
+
+const file =
+document.getElementById("importFile")
+.files[0];
+
+
+if(!file){
+
+alert("Please select a backup file.");
+
+return;
+
+}
+
+
+const reader=
+new FileReader();
+
+
+reader.onload=function(e){
+
+try{
+
+const data=
+JSON.parse(e.target.result);
+
+
+students=
+data.students || [];
+
+results=
+data.results || [];
+
+
+saveDatabase();
+
+updateDashboard();
+
+displayStudents();
+
+displayResults();
+
+alert(
+"Database restored successfully."
+);
+
+}
+
+catch(error){
+
+alert(
+"Invalid backup file."
+);
+
+}
+
+};
+
+
+reader.readAsText(file);
+
+}
+
+
+/* ==========================================
+CLEAR DATABASE
+========================================== */
+
+function clearDatabase(){
+
+if(!confirm(
+"WARNING: This will permanently delete ALL student and result records from this browser. Continue?"
+)){
+
+return;
+
+}
+
+
+students=[];
+
+results=[];
+
+saveDatabase();
+
+updateDashboard();
+
+displayStudents();
+
+displayResults();
+
+alert("All data has been deleted.");
+
+}
+
+
+/* ==========================================
+HTML SECURITY
+========================================== */
+
+function escapeHTML(value){
+
+if(value===null || value===undefined){
+
+return "";
+
+}
+
+return String(value)
+
+.replace(/&/g,"&amp;")
+
+.replace(/</g,"&lt;")
+
+.replace(/>/g,"&gt;")
+
+.replace(/"/g,"&quot;")
+
+.replace(/'/g,"&#039;");
+
+}
+
+
+/* ==========================================
+INITIALIZE
+========================================== */
+
+generateStudentID();
+
+updateDashboard();
+
+displayStudents();
+
+displayResults();
+
+</script>
+
+</body>
+</html>
